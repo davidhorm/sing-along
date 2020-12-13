@@ -6,9 +6,10 @@ import './Karaoke.css';
 
 type KaraokeProps = {
     videoId: string;
+    setVideoId: Function;
 }
 
-export const Karaoke = ({videoId}: KaraokeProps) => {
+export const Karaoke = ({videoId, setVideoId}: KaraokeProps) => {
     interface ILrcLine {
         lrcLine: LrcLine;
         index: number;
@@ -29,6 +30,7 @@ export const Karaoke = ({videoId}: KaraokeProps) => {
 
     return (
         <section className="karaoke">
+            <button onClick={() => setVideoId('')}>Back</button>
             <div id={song.videoId} />
             <Lrc 
                 className='lrc'

@@ -1,10 +1,16 @@
 import React from "react";
+import { Directory } from './Directory';
 import { Karaoke } from "./Karaoke";
 
-function App() {
+const App = () => {
+  const [selectedVideoId, setSelectedVideoId] = React.useState('');
+
   return (
     <div className="App">
-      <Karaoke videoId={'aAkMkVFwAoo'} />
+      {selectedVideoId 
+        ? <Karaoke videoId={selectedVideoId} setVideoId={setSelectedVideoId} />
+        : <Directory setVideoId={setSelectedVideoId} />
+      }
     </div>
   );
 }
