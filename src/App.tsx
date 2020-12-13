@@ -5,6 +5,7 @@ import { useFetch } from './hooks';
 export type SongMetadata = {
   videoId: string;
   lyricsFileName: string;
+  cc?: boolean;
 }
 const App = () => {
   const [selectedSong, setSelectedSong] = React.useState<SongMetadata>();

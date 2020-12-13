@@ -1,6 +1,7 @@
 import React from 'react';
 import './Directory.css';
 import { SongMetadata } from '../App';
+import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined';
 
 type DirectoryProps = {
     songList: SongMetadata[];
@@ -16,7 +17,10 @@ export const Directory = ({songList, setSelectedSong}: DirectoryProps) => {
 
                 return <button key={songMetadata.videoId} onClick={() => setSelectedSong(songMetadata)}>
                     <img src={youtubeThumbnailSrc} alt={`Youtube Thumbnail of ${title}`} />
-                    <div>{title}</div>
+                    <div>
+                        {title}
+                        {songMetadata.cc && <ClosedCaptionOutlinedIcon className="cc-icon" />}
+                    </div>
                 </button>
                 }
             )}
