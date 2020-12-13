@@ -1,6 +1,6 @@
 import React from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
-import { useDimensions, useFetch, useYouTube } from './hooks';
+import { useDimensions, useFetch, useYouTube } from '../hooks';
 import { playlist } from './playlist';
 import './Karaoke.css';
 

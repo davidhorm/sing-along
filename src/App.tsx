@@ -1,6 +1,5 @@
 import React from "react";
-import { Directory } from './Directory';
-import { Karaoke } from "./Karaoke";
+import { Directory, Karaoke } from './components';
 
 const App = () => {
   const [selectedVideoId, setSelectedVideoId] = React.useState('');

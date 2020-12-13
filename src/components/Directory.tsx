@@ -13,7 +13,7 @@ export const Directory = ({setVideoId}: DirectoryProps) => {
         <h1>🎄🎅🤶🎵 Christmas Sing Along 🎶☃️🎁🎄</h1>
         <section className="directory">
             {playlist.map(({ videoId, lyricsUrl}) => 
-                <button onClick={() => setVideoId(videoId)}>
+                <button key={videoId} onClick={() => setVideoId(videoId)}>
                     <img src={parseImageUrl(videoId)} />
                     <div>{parseTitle(lyricsUrl)}</div>
                 </button>
