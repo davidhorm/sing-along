@@ -1,15 +1,15 @@
 import React from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import { useDimensions, useFetch, useYouTube } from '../hooks';
-import { playlist } from './playlist';
 import './Karaoke.css';
+import { SongMetadata } from "../App";
 
 type KaraokeProps = {
-    videoId: string;
-    setVideoId: Function;
+    selectedSong: SongMetadata;
+    setSelectedSong: Function;
 }
 
-export const Karaoke = ({videoId, setVideoId}: KaraokeProps) => {
+export const Karaoke = ({selectedSong, setSelectedSong}: KaraokeProps) => {
     interface ILrcLine {
         lrcLine: LrcLine;
         index: number;
@@ -17,10 +17,9 @@ export const Karaoke = ({videoId, setVideoId}: KaraokeProps) => {
     }
     const { dimensions: { caption }} = useDimensions();
 
-    const [ song ] = playlist.filter(list => list.videoId === videoId);
-    const { data: lrcData } = useFetch(song.lyricsUrl);
+    const { data: lrcData } = useFetch(`/lyrics/${selectedSong.lyricsFileName}`);
 
-    const { milliseconds } = useYouTube(song.videoId, song.videoId);
+    const { milliseconds } = useYouTube(selectedSong.videoId, selectedSong.videoId);
 
     const lineRenderer = React.useCallback(({ lrcLine, active}: ILrcLine) => 
         <div className={ active ? 'active-line' : 'inactive-line' }>
@@ -30,8 +29,8 @@ export const Karaoke = ({videoId, setVideoId}: KaraokeProps) => {
 
     return (
         <section className="karaoke">
-            <button onClick={() => setVideoId('')}>Back</button>
-            <div id={song.videoId} />
+            <button onClick={() => setSelectedSong(null)}>Back</button>
+            <div id={selectedSong.videoId} />
             <Lrc 
                 className='lrc'
                 lrc={lrcData || ''}

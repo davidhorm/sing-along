@@ -1,21 +1,22 @@
 import React from 'react';
-import { playlist } from './playlist';
 import './Directory.css';
+import { SongMetadata } from '../App';
 
 type DirectoryProps = {
-    setVideoId: Function;
+    songList: SongMetadata[];
+    setSelectedSong: Function;
 }
-export const Directory = ({setVideoId}: DirectoryProps) => {
+export const Directory = ({songList, setSelectedSong}: DirectoryProps) => {
     const parseImageUrl = (videoId: string) => `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
-    const parseTitle = (lyricsUrl: string) => lyricsUrl.replace('/lyrics/', '').replace('.lrc', '');
+    const parseTitle = (lyricsFileName: string) => lyricsFileName.replace('.lrc', '');
 
     return (<>
         <h1>🎄🎅🤶🎵 Christmas Sing Along 🎶☃️🎁🎄</h1>
         <section className="directory">
-            {playlist.map(({ videoId, lyricsUrl}) => 
-                <button key={videoId} onClick={() => setVideoId(videoId)}>
-                    <img src={parseImageUrl(videoId)} />
-                    <div>{parseTitle(lyricsUrl)}</div>
+            {songList.map((songMetadata: SongMetadata) => 
+                <button key={songMetadata.videoId} onClick={() => setSelectedSong(songMetadata)}>
+                    <img src={parseImageUrl(songMetadata.videoId)} />
+                    <div>{parseTitle(songMetadata.lyricsFileName)}</div>
                 </button>
             )}
         </section>

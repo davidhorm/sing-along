@@ -1,14 +1,21 @@
 import React from "react";
 import { Directory, Karaoke } from './components';
+import { useFetch } from './hooks';
 
+export type SongMetadata = {
+  videoId: string;
+  lyricsFileName: string;
+}
 const App = () => {
-  const [selectedVideoId, setSelectedVideoId] = React.useState('');
+  const [selectedSong, setSelectedSong] = React.useState<SongMetadata>();
+  const { data } = useFetch('/lyrics/_index.json');
+  const songList: SongMetadata[] = data ? JSON.parse(data) : [];
 
   return (
     <div className="App">
-      {selectedVideoId 
-        ? <Karaoke videoId={selectedVideoId} setVideoId={setSelectedVideoId} />
-        : <Directory setVideoId={setSelectedVideoId} />
+      {selectedSong 
+        ? <Karaoke selectedSong={selectedSong} setSelectedSong={setSelectedSong} />
+        : <Directory songList={songList} setSelectedSong={setSelectedSong} />
       }
     </div>
   );
