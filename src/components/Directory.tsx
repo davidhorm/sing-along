@@ -7,17 +7,18 @@ type DirectoryProps = {
     setSelectedSong: Function;
 }
 export const Directory = ({songList, setSelectedSong}: DirectoryProps) => {
-    const parseImageUrl = (videoId: string) => `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
-    const parseTitle = (lyricsFileName: string) => lyricsFileName.replace('.lrc', '');
-
     return (<>
         <h1>🎄🎅🤶🎵 Christmas Sing Along 🎶☃️🎁🎄</h1>
         <section className="directory">
-            {songList.map((songMetadata: SongMetadata) => 
-                <button key={songMetadata.videoId} onClick={() => setSelectedSong(songMetadata)}>
-                    <img src={parseImageUrl(songMetadata.videoId)} />
-                    <div>{parseTitle(songMetadata.lyricsFileName)}</div>
+            {songList.map((songMetadata: SongMetadata) => {
+                const title = songMetadata.lyricsFileName.replace('.lrc', '');
+                const youtubeThumbnailSrc = `https://img.youtube.com/vi/${songMetadata.videoId}/mqdefault.jpg`;
+
+                return <button key={songMetadata.videoId} onClick={() => setSelectedSong(songMetadata)}>
+                    <img src={youtubeThumbnailSrc} alt={`Youtube Thumbnail of ${title}`} />
+                    <div>{title}</div>
                 </button>
+                }
             )}
         </section>
     </>);
