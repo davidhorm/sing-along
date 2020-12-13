@@ -7,7 +7,11 @@ export const useYouTube = (divId: string, videoId: string) => {
     const { dimensions: { video: { width, height} } } = useDimensions();
 
     React.useEffect(() => {
-        const player = YouTubePlayer(divId);
+        const player = YouTubePlayer(divId, {
+            playerVars: {
+                cc_load_policy: 1 // show closed captions
+            }
+        });
         player.setSize( width, height );
         player.loadVideoById(videoId);
 
