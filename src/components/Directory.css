@@ -1,5 +1,6 @@
 .directory {
     display: flex;
+    flex-wrap: wrap;
 }
 
 .cc-icon {
