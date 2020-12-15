@@ -131,5 +131,10 @@
     {
         "videoId": "V3EYjVPRClU",
         "lyricsFileName": "Santa's Coming For Us - Sia.lrc"
+    },
+    {
+        "videoId": "YiadNVhaGwk",
+        "lyricsFileName": "Run Rudolph Run - Chuck Berry.lrc",
+        "cc": true
     }
 ]
