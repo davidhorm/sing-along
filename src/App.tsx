@@ -9,7 +9,7 @@ export type SongMetadata = {
 }
 const App = () => {
   const [selectedSong, setSelectedSong] = React.useState<SongMetadata>();
-  const { data } = useFetch('/sing-along/lyrics/_index.json');
+  const { data } = useFetch('/sing-along/lyrics/index.json');
   const songList: SongMetadata[] = data ? JSON.parse(data) : [];
 
   return (
