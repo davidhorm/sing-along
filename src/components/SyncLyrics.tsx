@@ -18,10 +18,10 @@ export const SyncLyrics = ({ videoId }: SyncLyricsProps) => {
                 <button onClick={() => setMilliseconds( array => array.filter((_, index) => index !== milliseconds.length - 1))}>UNDO</button>
             </div>
             
-            <div>
+            <div style={{paddingLeft: '1em', maxHeight: '100vh', overflow: 'auto'}}>
                 {lyricLines.map((lyric, index) => {
                     const timestamp = milliseconds[index] ? `[${new Date(0, 0, 0, 0, 0, 0, milliseconds[index]).toISOString().substring(14, 21)}] ` : '';
-                    return <div style={{paddingLeft: '1em'}}>{timestamp}{lyric}</div>
+                    return <div key={index}>{timestamp}{lyric}</div>
                 })}
             </div>
         </section>
