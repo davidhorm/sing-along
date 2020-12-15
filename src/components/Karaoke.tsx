@@ -17,7 +17,7 @@ export const Karaoke = ({selectedSong, setSelectedSong}: KaraokeProps) => {
     }
     const { dimensions: { video, caption }} = useDimensions();
 
-    const { data: lrcData } = useFetch(`/lyrics/${selectedSong.lyricsFileName}`);
+    const { data: lrcData } = useFetch(`/sing-along/lyrics/${selectedSong.lyricsFileName}`);
 
     const { milliseconds } = useYouTube({
         videoId: selectedSong.videoId,
