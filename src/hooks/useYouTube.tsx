@@ -4,8 +4,8 @@ import YouTubePlayer from 'youtube-player';
 type useYouTubeProps = {
     divId?: string;
     videoId: string;
-    videoWidth: number;
-    videoHeight: number;
+    videoWidth?: number;
+    videoHeight?: number;
 }
 export const useYouTube = ({divId, videoId, videoWidth, videoHeight}: useYouTubeProps) => {
     const [milliseconds, setMilliseconds] = React.useState(0);

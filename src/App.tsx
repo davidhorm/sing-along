@@ -1,5 +1,5 @@
 import React from "react";
-import { Directory, Karaoke } from './components';
+import { Directory, Karaoke, SyncLyrics } from './components';
 import { useFetch } from './hooks';
 
 export type SongMetadata = {
@@ -14,9 +14,11 @@ const App = () => {
 
   return (
     <div className="App">
-      {selectedSong 
+      {selectedSong && selectedSong.lyricsFileName
         ? <Karaoke selectedSong={selectedSong} setSelectedSong={setSelectedSong} />
-        : <Directory songList={songList} setSelectedSong={setSelectedSong} />
+        : selectedSong && selectedSong.videoId
+          ? <SyncLyrics videoId={selectedSong.videoId} />
+          : <Directory songList={songList} setSelectedSong={setSelectedSong} />
       }
     </div>
   );
