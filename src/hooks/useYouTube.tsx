@@ -13,7 +13,8 @@ export const useYouTube = ({divId, videoId, videoWidth, videoHeight}: useYouTube
     React.useEffect(() => {
         const player = YouTubePlayer(divId || videoId, {
             playerVars: {
-                cc_load_policy: 1 // show closed captions
+                cc_load_policy: 1, // show closed captions
+                playsinline: 1, // disable auto-fullscreen in iOS
             }
         });
         videoWidth && videoHeight && player.setSize( videoWidth, videoHeight );
