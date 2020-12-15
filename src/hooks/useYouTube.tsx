@@ -1,18 +1,22 @@
 import React from 'react';
 import YouTubePlayer from 'youtube-player';
-import { useDimensions } from './useDimensions';
 
-export const useYouTube = (divId: string, videoId: string) => {
+type useYouTubeProps = {
+    divId?: string;
+    videoId: string;
+    videoWidth: number;
+    videoHeight: number;
+}
+export const useYouTube = ({divId, videoId, videoWidth, videoHeight}: useYouTubeProps) => {
     const [milliseconds, setMilliseconds] = React.useState(0);
-    const { dimensions: { video: { width, height} } } = useDimensions();
 
     React.useEffect(() => {
-        const player = YouTubePlayer(divId, {
+        const player = YouTubePlayer(divId || videoId, {
             playerVars: {
                 cc_load_policy: 1 // show closed captions
             }
         });
-        player.setSize( width, height );
+        videoWidth && videoHeight && player.setSize( videoWidth, videoHeight );
         player.loadVideoById(videoId);
 
         let timer: ReturnType<typeof setInterval>;
@@ -47,7 +51,7 @@ export const useYouTube = (divId: string, videoId: string) => {
             (player as any).off(listener);
             player.destroy();
         };
-    }, [divId, videoId, width, height]);
+    }, [divId, videoId, videoWidth, videoHeight]);
 
     return { milliseconds };
 }

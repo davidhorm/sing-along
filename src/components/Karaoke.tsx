@@ -15,11 +15,15 @@ export const Karaoke = ({selectedSong, setSelectedSong}: KaraokeProps) => {
         index: number;
         active: boolean
     }
-    const { dimensions: { caption }} = useDimensions();
+    const { dimensions: { video, caption }} = useDimensions();
 
     const { data: lrcData } = useFetch(`/lyrics/${selectedSong.lyricsFileName}`);
 
-    const { milliseconds } = useYouTube(selectedSong.videoId, selectedSong.videoId);
+    const { milliseconds } = useYouTube({
+        videoId: selectedSong.videoId,
+        videoWidth: video.width,
+        videoHeight: video.height,
+    });
 
     const lineRenderer = React.useCallback(({ lrcLine, active}: ILrcLine) => 
         <div className={ active ? 'active-line' : 'inactive-line' }>
