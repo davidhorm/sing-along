@@ -155,5 +155,10 @@
     {
         "videoId": "qUCNAnp2QAI",
         "lyricsFileName": "The Chanukah Song - Adam Sandler.lrc"
+    },
+    {
+        "videoId": "QLvvkTbHjHI",
+        "lyricsFileName": "What's This - The Nightmare Before Christmas.lrc",
+        "cc": true
     }
 ]
