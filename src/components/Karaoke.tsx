@@ -40,7 +40,7 @@ export const Karaoke = ({selectedSong, setSelectedSong}: KaraokeProps) => {
                 lrc={lrcData || ''}
                 currentTime={milliseconds}
                 lineRenderer={lineRenderer}
-                style={{ height: `calc(${caption.height}px - 4em)` }}
+                style={{ height: `calc(${caption.height}px - 4em)`, overflow: 'hidden' }}
                 spaceTop={0}
             />
         </section>
