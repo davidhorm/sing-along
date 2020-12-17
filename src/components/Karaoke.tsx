@@ -17,7 +17,8 @@ export const Karaoke = ({selectedSong, setSelectedSong}: KaraokeProps) => {
     }
     const { dimensions: { video, caption }} = useDimensions();
 
-    const { data: lrcData } = useFetch(`/sing-along/lyrics/${selectedSong.lyricsFileName}`);
+    const lyricUrl = !selectedSong.cc ? `/sing-along/lyrics/${selectedSong.lyricsFileName}` : '';
+    const { data: lrcData } = useFetch(lyricUrl);
 
     const { milliseconds } = useYouTube({
         videoId: selectedSong.videoId,
@@ -37,7 +38,7 @@ export const Karaoke = ({selectedSong, setSelectedSong}: KaraokeProps) => {
             <div id={selectedSong.videoId} />
             <Lrc 
                 className='lrc'
-                lrc={lrcData || ''}
+                lrc={!selectedSong.cc ? lrcData : '[00:00.0] [CC Available]'}
                 currentTime={milliseconds}
                 lineRenderer={lineRenderer}
                 style={{ height: `calc(${caption.height}px - 4em)`, overflow: 'hidden' }}
