@@ -29,6 +29,8 @@ export const Directory = ({songList}: DirectoryProps) => {
                     const [songTitle, artist] = lyricsFileName.replace('.lrc', '').split(' - ');
                     const youtubeThumbnailSrc = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
 
+                    const ifNeedsEditPath = lyricsFileName ? '' : '/edit';
+
                     return (
                         <Button 
                             variant="outlined"
@@ -36,7 +38,7 @@ export const Directory = ({songList}: DirectoryProps) => {
                             key={videoId}
                             component={Link}
                             to={{
-                                pathname: `${url}/${videoId}`,
+                                pathname: `${url}/${videoId}${ifNeedsEditPath}`,
                                 state: {
                                     lyricsFileName,
                                     cc,

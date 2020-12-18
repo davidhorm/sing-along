@@ -15,9 +15,9 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
-        {/* <Route path="/:videoId/edit">
-          <SyncLyrics videoId={selectedSong.videoId} /> 
-        </Route> */}
+        <Route path="/sing-along/:videoId/edit">
+          <SyncLyrics />
+        </Route>
         <Route path="/sing-along/:videoId">
           <Karaoke />
         </Route>
