@@ -1,6 +1,7 @@
 import React from "react";
 import { Directory, Karaoke, SyncLyrics } from './components';
 import { useFetch } from './hooks';
+import { Switch, Route } from 'react-router-dom';
 
 export type SongMetadata = {
   videoId: string;
@@ -8,18 +9,22 @@ export type SongMetadata = {
   cc?: boolean;
 }
 const App = () => {
-  const [selectedSong, setSelectedSong] = React.useState<SongMetadata>();
   const { data } = useFetch('/sing-along/lyrics/index.json');
   const songList: SongMetadata[] = data ? JSON.parse(data) : [];
 
   return (
     <div className="App">
-      {selectedSong && selectedSong.lyricsFileName
-        ? <Karaoke selectedSong={selectedSong} setSelectedSong={setSelectedSong} />
-        : selectedSong && selectedSong.videoId
-          ? <SyncLyrics videoId={selectedSong.videoId} />
-          : <Directory songList={songList} setSelectedSong={setSelectedSong} />
-      }
+      <Switch>
+        {/* <Route path="/:videoId/edit">
+          <SyncLyrics videoId={selectedSong.videoId} /> 
+        </Route> */}
+        <Route path="/sing-along/:videoId">
+          <Karaoke />
+        </Route>
+        <Route path="/sing-along">
+          <Directory songList={songList} />
+        </Route>
+      </Switch>
     </div>
   );
 }
