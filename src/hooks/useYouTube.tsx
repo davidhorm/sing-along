@@ -79,7 +79,7 @@ export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false
             (player as any).off(listener);
             player.destroy();
         };
-    }, [divId, videoId, videoId]); // videoWidth, videoHeight,
+    }, [divId, videoId, cc]);
 
     React.useEffect(() => {
         youTubePlayer && videoWidth && videoHeight && youTubePlayer.setSize(videoWidth, videoHeight);
