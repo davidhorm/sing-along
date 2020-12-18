@@ -1,12 +1,30 @@
 import React from 'react';
 import YouTubePlayer from 'youtube-player';
-import { Options } from 'youtube-player/dist/types';
+import { Options, YouTubePlayer as YouTubePlayerType } from 'youtube-player/dist/types';
 
-const getYouTubePlayerOptions = (): Options => ({
+const isIOS = () => [
+    'iPad Simulator',
+    'iPhone Simulator',
+    'iPod Simulator',
+    'iPad',
+    'iPhone',
+    'iPod'
+].includes(navigator.platform)
+    // iPad on iOS 13 detection
+    || (navigator.userAgent.includes("Mac") && "ontouchend" in document);
+
+/**
+ * 
+ * @param cc 
+ * @returns 0 = enable fullscreen; 1 = disable fullscreen
+ */
+const disableFullscreenOnIOS = (cc: boolean) => cc ? 0 : (isIOS() ? 1 : 0);
+
+const getYouTubePlayerOptions = (cc: boolean): Options => ({
     playerVars: {
         cc_load_policy: 1, // show closed captions
         iv_load_policy: 3, // remove video annotations
-        playsinline: 1, // disable auto-fullscreen in iOS
+        playsinline: disableFullscreenOnIOS(cc), // disable auto-fullscreen in iOS
         modestbranding: 1, // remove YouTube icon in bottom corner
     }
 });
@@ -16,15 +34,18 @@ type useYouTubeProps = {
     videoId: string;
     videoWidth?: number;
     videoHeight?: number;
+    cc?: boolean;
 }
-export const useYouTube = ({ divId, videoId, videoWidth, videoHeight }: useYouTubeProps) => {
+export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false }: useYouTubeProps) => {
     const [milliseconds, setMilliseconds] = React.useState(0);
+    const [youTubePlayer, setYouTubePlayer] = React.useState<YouTubePlayerType>();
 
     React.useEffect(() => {
-        const playerOptions = getYouTubePlayerOptions();
+        const playerOptions = getYouTubePlayerOptions(cc);
         const player = YouTubePlayer(divId || videoId, playerOptions);
-        videoWidth && videoHeight && player.setSize(videoWidth, videoHeight);
         player.loadVideoById(videoId);
+
+        setYouTubePlayer(player);
 
         let timer: ReturnType<typeof setInterval>;
         const startTimer = async () => {
@@ -58,7 +79,11 @@ export const useYouTube = ({ divId, videoId, videoWidth, videoHeight }: useYouTu
             (player as any).off(listener);
             player.destroy();
         };
-    }, [divId, videoId, videoWidth, videoHeight]);
+    }, [divId, videoId, videoId]); // videoWidth, videoHeight,
+
+    React.useEffect(() => {
+        youTubePlayer && videoWidth && videoHeight && youTubePlayer.setSize(videoWidth, videoHeight);
+    }, [youTubePlayer, videoWidth, videoHeight]);
 
     return { milliseconds };
 }

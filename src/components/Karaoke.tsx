@@ -24,6 +24,7 @@ export const Karaoke = ({selectedSong, setSelectedSong}: KaraokeProps) => {
         videoId: selectedSong.videoId,
         videoWidth: video.width,
         videoHeight: video.height,
+        cc: selectedSong.cc,
     });
 
     const lineRenderer = React.useCallback(({ lrcLine, active}: ILrcLine) => 
