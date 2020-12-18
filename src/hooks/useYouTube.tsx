@@ -1,5 +1,15 @@
 import React from 'react';
 import YouTubePlayer from 'youtube-player';
+import { Options } from 'youtube-player/dist/types';
+
+const getYouTubePlayerOptions = (): Options => ({
+    playerVars: {
+        cc_load_policy: 1, // show closed captions
+        iv_load_policy: 3, // remove video annotations
+        playsinline: 1, // disable auto-fullscreen in iOS
+        modestbranding: 1, // remove YouTube icon in bottom corner
+    }
+});
 
 type useYouTubeProps = {
     divId?: string;
@@ -7,17 +17,13 @@ type useYouTubeProps = {
     videoWidth?: number;
     videoHeight?: number;
 }
-export const useYouTube = ({divId, videoId, videoWidth, videoHeight}: useYouTubeProps) => {
+export const useYouTube = ({ divId, videoId, videoWidth, videoHeight }: useYouTubeProps) => {
     const [milliseconds, setMilliseconds] = React.useState(0);
 
     React.useEffect(() => {
-        const player = YouTubePlayer(divId || videoId, {
-            playerVars: {
-                cc_load_policy: 1, // show closed captions
-                playsinline: 1, // disable auto-fullscreen in iOS
-            }
-        });
-        videoWidth && videoHeight && player.setSize( videoWidth, videoHeight );
+        const playerOptions = getYouTubePlayerOptions();
+        const player = YouTubePlayer(divId || videoId, playerOptions);
+        videoWidth && videoHeight && player.setSize(videoWidth, videoHeight);
         player.loadVideoById(videoId);
 
         let timer: ReturnType<typeof setInterval>;
