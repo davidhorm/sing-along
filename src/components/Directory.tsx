@@ -4,7 +4,7 @@ import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined'
 import { SongMetadata } from '../App';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
-import { useRouteMatch, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles({
     label: { 
@@ -18,7 +18,6 @@ type DirectoryProps = {
 }
 export const Directory = ({songList}: DirectoryProps) => {
     const classes = useStyles();
-    const { url } = useRouteMatch();
 
     return (<>
         <h1>🎄🎅🤶🎵 Christmas Sing Along 🎶☃️🎁🎄</h1>
@@ -38,7 +37,7 @@ export const Directory = ({songList}: DirectoryProps) => {
                             key={videoId}
                             component={Link}
                             to={{
-                                pathname: `${url}/${videoId}${ifNeedsEditPath}`,
+                                pathname: `/${videoId}${ifNeedsEditPath}`,
                                 state: {
                                     lyricsFileName,
                                     cc,

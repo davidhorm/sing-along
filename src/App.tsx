@@ -15,13 +15,13 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
-        <Route path="/sing-along/:videoId/edit">
+        <Route path="/:videoId/edit">
           <SyncLyrics />
         </Route>
-        <Route path="/sing-along/:videoId">
+        <Route path="/:videoId">
           <Karaoke />
         </Route>
-        <Route path="/sing-along">
+        <Route path="/">
           <Directory songList={songList} />
         </Route>
       </Switch>
