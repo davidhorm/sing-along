@@ -1,9 +1,9 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 
 export const useFetch = (url: string) => {
-    const [data, setData] = React.useState('');
+    const [data, setData] = useState('');
 
-    React.useEffect(() => {
+    useEffect(() => {
         const fetchData = async () => 
             fetch(url)
                 .then(response => response.text())

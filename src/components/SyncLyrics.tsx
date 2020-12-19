@@ -1,10 +1,10 @@
-import React from 'react';
+import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useYouTube } from '../hooks';
 
 export const SyncLyrics = () => {
-    const [ lyricLines, setLyricLines ] = React.useState<string[]>([]);
-    const [ milliseconds, setMilliseconds ] = React.useState<number[]>([]);
+    const [ lyricLines, setLyricLines ] = useState<string[]>([]);
+    const [ milliseconds, setMilliseconds ] = useState<number[]>([]);
     const { videoId } = useParams<any>();
     const { milliseconds: youTubeTime } = useYouTube({videoId});
 

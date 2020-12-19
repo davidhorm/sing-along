@@ -1,4 +1,3 @@
-import React from "react";
 import { Directory, Karaoke, SyncLyrics } from './components';
 import { useFetch } from './hooks';
 import { Switch, Route } from 'react-router-dom';

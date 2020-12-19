@@ -1,4 +1,3 @@
-import React from 'react';
 import './Directory.css';
 import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined';
 import { SongMetadata } from '../App';

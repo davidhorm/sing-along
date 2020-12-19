@@ -1,4 +1,4 @@
-import React from "react";
+import { useCallback } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import { useDimensions, useFetch, useYouTube } from '../hooks';
 import './Karaoke.css';
@@ -24,7 +24,7 @@ export const Karaoke = () => {
         index: number;
         active: boolean
     }
-    const lineRenderer = React.useCallback(({ lrcLine, active }: ILrcLine) => 
+    const lineRenderer = useCallback(({ lrcLine, active }: ILrcLine) => 
         <div className={ active ? 'active-line' : 'inactive-line' }>
             {lrcLine.content}
         </div>

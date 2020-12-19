@@ -1,4 +1,4 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import YouTubePlayer from 'youtube-player';
 import { Options, YouTubePlayer as YouTubePlayerType } from 'youtube-player/dist/types';
 
@@ -37,10 +37,10 @@ type useYouTubeProps = {
     cc?: boolean;
 }
 export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false }: useYouTubeProps) => {
-    const [milliseconds, setMilliseconds] = React.useState(0);
-    const [youTubePlayer, setYouTubePlayer] = React.useState<YouTubePlayerType>();
+    const [milliseconds, setMilliseconds] = useState(0);
+    const [youTubePlayer, setYouTubePlayer] = useState<YouTubePlayerType>();
 
-    React.useEffect(() => {
+    useEffect(() => {
         const playerOptions = getYouTubePlayerOptions(cc);
         const player = YouTubePlayer(divId || videoId, playerOptions);
         player.loadVideoById(videoId);
@@ -81,7 +81,7 @@ export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false
         };
     }, [divId, videoId, cc]);
 
-    React.useEffect(() => {
+    useEffect(() => {
         youTubePlayer && videoWidth && videoHeight && youTubePlayer.setSize(videoWidth, videoHeight);
     }, [youTubePlayer, videoWidth, videoHeight]);
 
