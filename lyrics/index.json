@@ -65,8 +65,9 @@
         "lyricsFileName": "Rockin' Around The Christmas Tree - Ingrid Michaelson ft. Grace VanderWaal.lrc"
     },
     {
-        "videoId": "e4IeOjpe2p8",
-        "lyricsFileName": "The Christmas Song (Merry Christmas To You) - Nat King Cole.lrc"
+        "videoId": "wKhRnZZ0cJI",
+        "lyricsFileName": "The Christmas Song (Merry Christmas To You) - Nat King Cole.lrc",
+        "cc": true
     },
     {
         "videoId": "wO6Kubm5tyE",
@@ -229,5 +230,22 @@
     {
         "videoId": "RmF2rsDHOZc",
         "lyricsFileName": "Grown-Up Christmas List - Amy Grant.lrc"
+    },
+    {
+        "videoId": "4QJKhKNWy5o",
+        "lyricsFileName": "Take Me Home For Christmas - Dan + Shay.lrc"
+    },
+    {
+        "videoId": "4QJKhKNWy5o",
+        "lyricsFileName": "Merry Christmas, Darling - The Carpenters.lrc"
+    },
+    {
+        "videoId": "N-PyWfVkjZc",
+        "lyricsFileName": "Merry Christmas Everyone - Shakin' Stevens.lrc"
+    },
+    {
+        "videoId": "oKxg1Id4QI8",
+        "lyricsFileName": "My Kind Of Present - Meghan Trainor.lrc",
+        "cc": true
     }
 ]
