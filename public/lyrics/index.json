@@ -242,5 +242,10 @@
     {
         "videoId": "N-PyWfVkjZc",
         "lyricsFileName": "Merry Christmas Everyone - Shakin' Stevens.lrc"
+    },
+    {
+        "videoId": "oKxg1Id4QI8",
+        "lyricsFileName": "My Kind Of Present - Meghan Trainor.lrc",
+        "cc": true
     }
 ]
