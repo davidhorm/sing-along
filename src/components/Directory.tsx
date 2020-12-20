@@ -1,9 +1,9 @@
 import './Directory.css';
 import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined';
-import { SongMetadata } from '../App';
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import { SongMetadata } from '../SongList.context';
 
 const useStyles = makeStyles({
     label: { 

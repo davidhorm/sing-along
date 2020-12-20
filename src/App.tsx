@@ -1,12 +1,8 @@
 import { Directory, Karaoke, SyncLyrics } from './components';
 import { useFetch } from './hooks';
 import { Switch, Route } from 'react-router-dom';
+import { SongMetadata } from './SongList.context';
 
-export type SongMetadata = {
-  videoId: string;
-  lyricsFileName: string;
-  cc?: boolean;
-}
 const App = () => {
   const { data } = useFetch('/sing-along/lyrics/index.json');
   const songList: SongMetadata[] = data ? JSON.parse(data) : [];
