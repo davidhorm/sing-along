@@ -3,7 +3,7 @@ import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined'
 import { makeStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
-import { SongMetadata } from '../SongList.context';
+import { SongMetadata, useSongList } from '../SongList.context';
 
 const useStyles = makeStyles({
     label: { 
@@ -12,11 +12,9 @@ const useStyles = makeStyles({
     },
 });
 
-type DirectoryProps = {
-    songList: SongMetadata[];
-}
-export const Directory = ({songList}: DirectoryProps) => {
+export const Directory = () => {
     const classes = useStyles();
+    const { songList } = useSongList();
 
     return (<>
         <h1>🎄🎅🤶🎵 Christmas Sing Along 🎶☃️🎁🎄</h1>
