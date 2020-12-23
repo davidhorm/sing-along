@@ -1,6 +1,6 @@
 import { useCallback, useState, useEffect } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
-import { useDimensions, useFetch, useYouTube } from '../hooks';
+import { useDimensions, useYouTube } from '../hooks';
 import './Karaoke.css';
 import { SongMetadata } from "../App";
 import { useParams } from 'react-router-dom';
