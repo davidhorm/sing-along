@@ -35,13 +35,7 @@ export const Directory = ({songList}: DirectoryProps) => {
                             classes={{ label: classes.label }}
                             key={videoId}
                             component={Link}
-                            to={{
-                                pathname: `/${videoId}${ifNeedsEditPath}`,
-                                state: {
-                                    lyricsFileName,
-                                    cc,
-                                },
-                            }}
+                            to={`/${videoId}${ifNeedsEditPath}`}
                             >
                             <img src={youtubeThumbnailSrc} alt={`Youtube Thumbnail of ${songTitle}`} />
                             <div>
