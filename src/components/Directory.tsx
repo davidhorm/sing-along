@@ -1,19 +1,34 @@
 import './Directory.css';
 import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined';
-import { SongMetadata } from '../App';
+import { MusicVideo } from '../App';
 import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
 import { Link } from 'react-router-dom';
+import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
     label: { 
         flexDirection: 'column',
         minWidth: '420px'
     },
+    card: {
+        margin: 8,
+        maxWidth: 320,
+    },
+    cardMedia: {
+        height: 180,
+    },
+    cardTitle: {
+        fontSize: '1rem',
+        fontWeight: 500,
+    }
 });
 
 type DirectoryProps = {
-    songList: SongMetadata[];
+    songList: MusicVideo[];
 }
 export const Directory = ({songList}: DirectoryProps) => {
     const classes = useStyles();
@@ -22,27 +37,38 @@ export const Directory = ({songList}: DirectoryProps) => {
         <h1>🎄🎅🤶🎵 Christmas Sing Along 🎶☃️🎁🎄</h1>
         <section className="directory">
             {songList
-                .sort((a: SongMetadata, b: SongMetadata) => a.lyricsFileName.localeCompare(b.lyricsFileName))
-                .map(({ videoId, lyricsFileName, cc }: SongMetadata) => {
-                    const [songTitle, artist] = lyricsFileName.replace('.lrc', '').split(' - ');
+                .sort((a: MusicVideo, b: MusicVideo) => a.songTitle.localeCompare(b.songTitle))
+                .map(({ videoId, songTitle, songArtist, cc }: MusicVideo) => {
                     const youtubeThumbnailSrc = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
+                    const youtubeThumbnailAlt = `Youtube Thumbnail of ${songTitle}`;
 
-                    const ifNeedsEditPath = lyricsFileName ? '' : '/edit';
+                    const ifNeedsEditPath = songTitle && songArtist ? '' : '/edit';
 
                     return (
-                        <Button 
-                            variant="outlined"
-                            classes={{ label: classes.label }}
+                        <Card 
+                            className={classes.card}
                             key={videoId}
-                            component={Link}
-                            to={`/${videoId}${ifNeedsEditPath}`}
                             >
-                            <img src={youtubeThumbnailSrc} alt={`Youtube Thumbnail of ${songTitle}`} />
-                            <div>
-                                {songTitle} <br /> {artist}
-                                {cc && <ClosedCaptionOutlinedIcon className="cc-icon" />}
-                            </div>
-                        </Button>);
+                            <Link to={`/${videoId}${ifNeedsEditPath}`} component={CardActionArea}>
+                                <CardMedia
+                                    className={classes.cardMedia}
+                                    component="img"
+                                    alt={youtubeThumbnailAlt}
+                                    title={youtubeThumbnailAlt}
+                                    image={youtubeThumbnailSrc}
+                                />
+                                <CardContent>
+                                    <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
+                                        {songTitle}
+                                    </Typography>
+                                    <Typography variant="body2" color="textSecondary" component="p">
+                                        {songArtist}
+                                        {cc && <ClosedCaptionOutlinedIcon className="cc-icon" />}
+                                    </Typography>
+                                </CardContent>
+                            </Link>
+                        </Card>
+                    );
                 }
             )}
         </section>
