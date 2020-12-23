@@ -7,7 +7,7 @@ import { HashRouter } from 'react-router-dom';
 
 ReactDOM.render(
   <StrictMode>
-    <HashRouter basename="/sing-along">
+    <HashRouter>
       <App />
     </HashRouter>
   </StrictMode>,
