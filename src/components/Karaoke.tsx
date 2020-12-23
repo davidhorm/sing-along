@@ -2,23 +2,23 @@ import { useCallback, useState, useEffect } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import { useDimensions, useYouTube } from '../hooks';
 import './Karaoke.css';
-import { SongMetadata } from "../App";
+import { MusicVideo } from "../App";
 import { useParams } from 'react-router-dom';
 
 type Props = {
-    songList: SongMetadata[];
+    songList: MusicVideo[];
 }
 export const Karaoke = ({ songList }: Props) => {
     const { videoId } = useParams<any>();
-    const { lyricsFileName, cc } = songList.filter(song => song.videoId === videoId)[0] || {};
+    const { songTitle, songArtist, cc } = songList.filter(song => song.videoId === videoId)[0] || {};
     
     const [lrcData, setLrcData] = useState('');
     useEffect(() => {
-        const lyricUrl = !cc ? `/sing-along/lyrics/${lyricsFileName}` : '';
+        const lyricUrl = !cc ? `/sing-along/lyrics/${songTitle} - ${songArtist}.lrc` : '';
         fetch(lyricUrl)
             .then(response => response.text())
             .then(setLrcData);
-    },[lyricsFileName, cc]);
+    },[songTitle, songArtist, cc]);
 
     const { dimensions: { video, caption }} = useDimensions();
     const { milliseconds } = useYouTube({
