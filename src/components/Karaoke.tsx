@@ -1,4 +1,4 @@
-import { useCallback } from "react";
+import { useCallback, useState, useEffect } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import { useDimensions, useFetch, useYouTube } from '../hooks';
 import './Karaoke.css';
@@ -11,8 +11,14 @@ type Props = {
 export const Karaoke = ({ songList }: Props) => {
     const { videoId } = useParams<any>();
     const { lyricsFileName, cc } = songList.filter(song => song.videoId === videoId)[0] || {};
-    const lyricUrl = !cc ? `/sing-along/lyrics/${lyricsFileName}` : '';
-    const { data: lrcData } = useFetch(lyricUrl);
+    
+    const [lrcData, setLrcData] = useState('');
+    useEffect(() => {
+        const lyricUrl = !cc ? `/sing-along/lyrics/${lyricsFileName}` : '';
+        fetch(lyricUrl)
+            .then(response => response.text())
+            .then(setLrcData);
+    },[lyricsFileName, cc]);
 
     const { dimensions: { video, caption }} = useDimensions();
     const { milliseconds } = useYouTube({
