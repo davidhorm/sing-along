@@ -2,16 +2,19 @@ import { useCallback } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import { useDimensions, useFetch, useYouTube } from '../hooks';
 import './Karaoke.css';
-import { useParams, useLocation } from 'react-router-dom';
+import { SongMetadata } from "../App";
+import { useParams } from 'react-router-dom';
 
-export const Karaoke = () => {
-    const { dimensions: { video, caption }} = useDimensions();
+type Props = {
+    songList: SongMetadata[];
+}
+export const Karaoke = ({ songList }: Props) => {
     const { videoId } = useParams<any>();
-    const { state: { lyricsFileName, cc } } = useLocation<any>();
-
+    const { lyricsFileName, cc } = songList.filter(song => song.videoId === videoId)[0] || {};
     const lyricUrl = !cc ? `/sing-along/lyrics/${lyricsFileName}` : '';
     const { data: lrcData } = useFetch(lyricUrl);
 
+    const { dimensions: { video, caption }} = useDimensions();
     const { milliseconds } = useYouTube({
         videoId,
         videoWidth: video.width,

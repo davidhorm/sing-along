@@ -18,7 +18,7 @@ const App = () => {
           <SyncLyrics />
         </Route>
         <Route path="/:videoId">
-          <Karaoke />
+          <Karaoke songList={songList} />
         </Route>
         <Route path="/">
           <Directory songList={songList} />
