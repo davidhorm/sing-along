@@ -313,5 +313,11 @@
         "videoId": "UUriY3wmLuY",
         "songTitle": "When Christmas Comes",
         "songArtist": "Mariah Carey ft. John Legend"
+    },
+    {
+        "videoId": "V8HQ-YY33ys",
+        "songTitle": "Merry Christmas Baby",
+        "songArtist": "Otis Redding",
+        "cc": true
     }
 ]
