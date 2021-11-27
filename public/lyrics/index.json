@@ -140,9 +140,10 @@
         "songArtist": "Bing Crosby & Danny Kaye"
     },
     {
-        "videoId": "JBPgE6elY1w",
+        "videoId": "j7Tksexm680",
         "songTitle": "My Only Wish (This Year)",
-        "songArtist": "Britney Spears & Meghan Trainor"
+        "songArtist": "Britney Spears",
+        "cc": true
     },
     {
         "videoId": "62rmjtZdCv8",
