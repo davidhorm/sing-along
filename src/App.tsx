@@ -1,4 +1,4 @@
-import { Directory, KaraokeByVideoId, SyncLyrics } from './components';
+import { Directory, KaraokeByShuffle, KaraokeByVideoId, SyncLyrics } from './components';
 import { useFetch } from './hooks';
 import { Switch, Route } from 'react-router-dom';
 
@@ -15,6 +15,9 @@ const App = () => {
   return (
     <div className="App">
       <Switch>
+        <Route path="/shuffle/:shuffleIndex">
+          <KaraokeByShuffle songList={songList} />
+        </Route>
         <Route path="/:videoId/edit">
           <SyncLyrics />
         </Route>
