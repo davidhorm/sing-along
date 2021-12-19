@@ -12,6 +12,9 @@ const App = () => {
   const { data } = useFetch('/sing-along/lyrics/index.json');
   const songList: MusicVideo[] = data ? JSON.parse(data) : [];
 
+  // Shuffle list here since KaraokeByShuffle rerenders on each page load
+  songList.sort(() => 0.5 - Math.random());
+
   return (
     <div className="App">
       <Switch>

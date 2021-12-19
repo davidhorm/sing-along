@@ -29,14 +29,15 @@ const getYouTubePlayerOptions = (cc: boolean): Options => ({
     }
 });
 
-type useYouTubeProps = {
+export interface useYouTubeProps {
     divId?: string;
     videoId: string;
     videoWidth?: number;
     videoHeight?: number;
     cc?: boolean;
+    onVideoEnd?: Function;
 }
-export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false }: useYouTubeProps) => {
+export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false, onVideoEnd }: useYouTubeProps) => {
     const [milliseconds, setMilliseconds] = useState(0);
     const [youTubePlayer, setYouTubePlayer] = useState<YouTubePlayerType>();
 
@@ -66,8 +67,11 @@ export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false
                     startTimer();
                     break;
                 case PAUSED:
+                    stopTimer();
+                    break;
                 case ENDED:
                     stopTimer();
+                    onVideoEnd && onVideoEnd();
                     break;
             }
         };
@@ -79,7 +83,7 @@ export const useYouTube = ({ divId, videoId, videoWidth, videoHeight, cc = false
             (player as any).off(listener);
             player.destroy();
         };
-    }, [divId, videoId, cc]);
+    }, [divId, videoId, cc, onVideoEnd]);
 
     useEffect(() => {
         youTubePlayer && videoWidth && videoHeight && youTubePlayer.setSize(videoWidth, videoHeight);
