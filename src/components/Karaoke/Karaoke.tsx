@@ -1,10 +1,9 @@
-import { useCallback, useState, useEffect } from "react";
-import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import { useYouTube } from '../../hooks';
 import { useDimensions } from './useDimensions';
 import './Karaoke.css';
 import type { MusicVideo } from "../../App";
 import { useParams } from 'react-router-dom';
+import { Lyrics } from './Lyrics';
 
 type Props = {
     songList: MusicVideo[];
@@ -12,14 +11,6 @@ type Props = {
 export const Karaoke = ({ songList }: Props) => {
     const { videoId } = useParams<any>();
     const { songTitle, songArtist, cc } = songList.filter(song => song.videoId === videoId)[0] || {};
-
-    const [lrcData, setLrcData] = useState('');
-    useEffect(() => {
-        const lyricUrl = !cc ? `/sing-along/lyrics/${songTitle} - ${songArtist}.lrc` : '';
-        fetch(lyricUrl)
-            .then(response => response.text())
-            .then(setLrcData);
-    }, [songTitle, songArtist, cc]);
 
     const { dimensions: { video, caption } } = useDimensions();
     const { milliseconds } = useYouTube({
@@ -29,27 +20,15 @@ export const Karaoke = ({ songList }: Props) => {
         cc,
     });
 
-    interface ILrcLine {
-        lrcLine: LrcLine;
-        index: number;
-        active: boolean
-    }
-    const lineRenderer = useCallback(({ lrcLine, active }: ILrcLine) =>
-        <div className={active ? 'active-line' : 'inactive-line'}>
-            {lrcLine.content}
-        </div>
-        , []);
-
     return (
         <section className="karaoke">
             <div id={videoId} />
-            <Lrc
-                className='lrc'
-                lrc={!cc ? lrcData : '[00:00.0] [CC Available]'}
-                currentTime={milliseconds}
-                lineRenderer={lineRenderer}
-                style={{ height: `calc(${caption.height}px - 4em)`, overflow: 'hidden' }}
-                spaceTop={0}
+            <Lyrics
+                milliseconds={milliseconds}
+                captionHeight={caption.height}
+                songTitle={songTitle}
+                songArtist={songArtist}
+                cc={cc}
             />
         </section>
     );
