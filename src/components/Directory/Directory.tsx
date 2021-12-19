@@ -1,16 +1,15 @@
 import './Directory.css';
 import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined';
-import { MusicVideo } from '../App';
+import type { MusicVideo } from '../../App';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
-import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 
 const useStyles = makeStyles({
-    label: { 
+    label: {
         flexDirection: 'column',
         minWidth: '420px'
     },
@@ -30,7 +29,7 @@ const useStyles = makeStyles({
 type DirectoryProps = {
     songList: MusicVideo[];
 }
-export const Directory = ({songList}: DirectoryProps) => {
+export const Directory = ({ songList }: DirectoryProps) => {
     const classes = useStyles();
 
     return (<>
@@ -45,11 +44,11 @@ export const Directory = ({songList}: DirectoryProps) => {
                     const ifNeedsEditPath = songTitle && songArtist ? '' : '/edit';
 
                     return (
-                        <Card 
+                        <Card
                             className={classes.card}
                             key={videoId}
-                            >
-                            <Link to={`/${videoId}${ifNeedsEditPath}`} component={CardActionArea}>
+                        >
+                            <Link to={`/${videoId}${ifNeedsEditPath}`}>
                                 <CardMedia
                                     className={classes.cardMedia}
                                     component="img"
@@ -70,7 +69,7 @@ export const Directory = ({songList}: DirectoryProps) => {
                         </Card>
                     );
                 }
-            )}
+                )}
         </section>
     </>);
 };

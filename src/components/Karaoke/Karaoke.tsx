@@ -1,8 +1,9 @@
 import { useCallback, useState, useEffect } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
-import { useDimensions, useYouTube } from '../hooks';
+import { useYouTube } from '../../hooks';
+import { useDimensions } from './useDimensions';
 import './Karaoke.css';
-import { MusicVideo } from "../App";
+import type { MusicVideo } from "../../App";
 import { useParams } from 'react-router-dom';
 
 type Props = {
@@ -11,16 +12,16 @@ type Props = {
 export const Karaoke = ({ songList }: Props) => {
     const { videoId } = useParams<any>();
     const { songTitle, songArtist, cc } = songList.filter(song => song.videoId === videoId)[0] || {};
-    
+
     const [lrcData, setLrcData] = useState('');
     useEffect(() => {
         const lyricUrl = !cc ? `/sing-along/lyrics/${songTitle} - ${songArtist}.lrc` : '';
         fetch(lyricUrl)
             .then(response => response.text())
             .then(setLrcData);
-    },[songTitle, songArtist, cc]);
+    }, [songTitle, songArtist, cc]);
 
-    const { dimensions: { video, caption }} = useDimensions();
+    const { dimensions: { video, caption } } = useDimensions();
     const { milliseconds } = useYouTube({
         videoId,
         videoWidth: video.width,
@@ -33,16 +34,16 @@ export const Karaoke = ({ songList }: Props) => {
         index: number;
         active: boolean
     }
-    const lineRenderer = useCallback(({ lrcLine, active }: ILrcLine) => 
-        <div className={ active ? 'active-line' : 'inactive-line' }>
+    const lineRenderer = useCallback(({ lrcLine, active }: ILrcLine) =>
+        <div className={active ? 'active-line' : 'inactive-line'}>
             {lrcLine.content}
         </div>
-    , []);
+        , []);
 
     return (
         <section className="karaoke">
             <div id={videoId} />
-            <Lrc 
+            <Lrc
                 className='lrc'
                 lrc={!cc ? lrcData : '[00:00.0] [CC Available]'}
                 currentTime={milliseconds}
