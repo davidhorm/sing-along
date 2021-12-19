@@ -1,3 +1,3 @@
 export { Directory } from './Directory/Directory';
-export { Karaoke } from './Karaoke/Karaoke';
+export { KaraokeByVideoId } from './KaraokeByVideoId/KaraokeByVideoId';
 export { SyncLyrics } from './SyncLyrics';

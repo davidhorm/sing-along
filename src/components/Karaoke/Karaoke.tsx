@@ -1,18 +1,17 @@
 import { useYouTube } from '../../hooks';
 import { useDimensions } from './useDimensions';
 import './Karaoke.css';
-import type { MusicVideo } from "../../App";
-import { useParams } from 'react-router-dom';
 import { Lyrics } from './Lyrics';
+import type { MusicVideo } from "../../App";
 
-type Props = {
-    songList: MusicVideo[];
-}
-export const Karaoke = ({ songList }: Props) => {
-    const { videoId } = useParams<any>();
-    const { songTitle, songArtist, cc } = songList.filter(song => song.videoId === videoId)[0] || {};
-
+export const Karaoke = ({
+    videoId,
+    songTitle,
+    songArtist,
+    cc,
+}: MusicVideo) => {
     const { dimensions: { video, caption } } = useDimensions();
+
     const { milliseconds } = useYouTube({
         videoId,
         videoWidth: video.width,

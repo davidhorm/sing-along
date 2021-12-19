@@ -1,4 +1,4 @@
-import { Directory, Karaoke, SyncLyrics } from './components';
+import { Directory, KaraokeByVideoId, SyncLyrics } from './components';
 import { useFetch } from './hooks';
 import { Switch, Route } from 'react-router-dom';
 
@@ -19,7 +19,7 @@ const App = () => {
           <SyncLyrics />
         </Route>
         <Route path="/:videoId">
-          <Karaoke songList={songList} />
+          <KaraokeByVideoId songList={songList} />
         </Route>
         <Route path="/">
           <Directory songList={songList} />
