@@ -1,4 +1,4 @@
-import { Directory, Karaoke, SyncLyrics } from './components';
+import { Directory, KaraokeByShuffle, KaraokeByVideoId, SyncLyrics } from './components';
 import { useFetch } from './hooks';
 import { Switch, Route } from 'react-router-dom';
 
@@ -12,14 +12,20 @@ const App = () => {
   const { data } = useFetch('/sing-along/lyrics/index.json');
   const songList: MusicVideo[] = data ? JSON.parse(data) : [];
 
+  // Shuffle list here since KaraokeByShuffle rerenders on each page load
+  const randomSongList = [...songList].sort(() => 0.5 - Math.random())
+
   return (
     <div className="App">
       <Switch>
+        <Route path="/shuffle/:shuffleIndex">
+          <KaraokeByShuffle songList={randomSongList} />
+        </Route>
         <Route path="/:videoId/edit">
           <SyncLyrics />
         </Route>
         <Route path="/:videoId">
-          <Karaoke songList={songList} />
+          <KaraokeByVideoId songList={songList} />
         </Route>
         <Route path="/">
           <Directory songList={songList} />
