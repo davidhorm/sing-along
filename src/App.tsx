@@ -13,13 +13,13 @@ const App = () => {
   const songList: MusicVideo[] = data ? JSON.parse(data) : [];
 
   // Shuffle list here since KaraokeByShuffle rerenders on each page load
-  songList.sort(() => 0.5 - Math.random());
+  const randomSongList = [...songList].sort(() => 0.5 - Math.random())
 
   return (
     <div className="App">
       <Switch>
         <Route path="/shuffle/:shuffleIndex">
-          <KaraokeByShuffle songList={songList} />
+          <KaraokeByShuffle songList={randomSongList} />
         </Route>
         <Route path="/:videoId/edit">
           <SyncLyrics />
