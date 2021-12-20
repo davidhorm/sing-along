@@ -4,6 +4,7 @@ import type { MusicVideo } from '../../App';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
+import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
@@ -51,22 +52,24 @@ export const Directory = ({ songList }: DirectoryProps) => {
                             key={videoId}
                         >
                             <Link to={`/${videoId}${ifNeedsEditPath}`}>
-                                <CardMedia
-                                    className={classes.cardMedia}
-                                    component="img"
-                                    alt={youtubeThumbnailAlt}
-                                    title={youtubeThumbnailAlt}
-                                    image={youtubeThumbnailSrc}
-                                />
-                                <CardContent>
-                                    <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
-                                        {songTitle}
-                                    </Typography>
-                                    <Typography variant="body2" color="textSecondary" component="p">
-                                        {songArtist}
-                                        {cc && <ClosedCaptionOutlinedIcon className="cc-icon" />}
-                                    </Typography>
-                                </CardContent>
+                                <CardActionArea>
+                                    <CardMedia
+                                        className={classes.cardMedia}
+                                        component="img"
+                                        alt={youtubeThumbnailAlt}
+                                        title={youtubeThumbnailAlt}
+                                        image={youtubeThumbnailSrc}
+                                    />
+                                    <CardContent>
+                                        <Typography gutterBottom variant="h5" component="h2" className={classes.cardTitle}>
+                                            {songTitle}
+                                        </Typography>
+                                        <Typography variant="body2" color="textSecondary" component="p">
+                                            {songArtist}
+                                            {cc && <ClosedCaptionOutlinedIcon className="cc-icon" />}
+                                        </Typography>
+                                    </CardContent>
+                                </CardActionArea>
                             </Link>
                         </Card>
                     );
