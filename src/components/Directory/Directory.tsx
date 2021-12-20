@@ -7,6 +7,7 @@ import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import { ShuffleButton } from './ShuffleButton';
 
 const useStyles = makeStyles({
     label: {
@@ -34,7 +35,7 @@ export const Directory = ({ songList }: DirectoryProps) => {
 
     return (<>
         <h1>🎄🎅🤶🎵 Christmas Sing Along 🎶☃️🎁🎄</h1>
-        <nav><Link to='/shuffle/0'>Shuffle Play</Link></nav>
+        <nav><ShuffleButton /></nav>
         <section className="directory">
             {songList
                 .sort((a: MusicVideo, b: MusicVideo) => a.songTitle.localeCompare(b.songTitle))
