@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
+import Button from '@material-ui/core/Button';
 import { useYouTube } from '../hooks';
 
 export const SyncLyrics = () => {
@@ -8,15 +9,13 @@ export const SyncLyrics = () => {
     const { videoId } = useParams<any>();
     const { milliseconds: youTubeTime } = useYouTube({ videoId });
 
-    const border = { border: 'solid 1px gray' };
-
     return (
         <section className="sync-lyrics" style={{ display: 'flex' }}>
             <div>
                 <div id={videoId}></div><br />
-                <textarea style={border} onChange={e => setLyricLines(e.target.value.split('\n'))}></textarea><br />
-                <button style={border} onClick={() => setMilliseconds(current => [...current, youTubeTime])}>SET TIME</button><br />
-                <button style={border} onClick={() => setMilliseconds(array => array.filter((_, index) => index !== milliseconds.length - 1))}>UNDO</button>
+                <textarea style={{ border: 'solid 1px gray', height: '35%', width: '100%' }} onChange={e => setLyricLines(e.target.value.split('\n'))}></textarea><br />
+                <Button variant="outlined" onClick={() => setMilliseconds(current => [...current, youTubeTime])}>SET TIME</Button><br />
+                <Button variant="outlined" onClick={() => setMilliseconds(array => array.filter((_, index) => index !== milliseconds.length - 1))}>UNDO</Button>
             </div>
 
             <div style={{ paddingLeft: '1em', maxHeight: '100vh', overflow: 'auto' }}>
