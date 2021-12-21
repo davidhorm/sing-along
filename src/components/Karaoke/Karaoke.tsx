@@ -4,17 +4,18 @@ import './Karaoke.css';
 import { Lyrics } from './Lyrics';
 import type { MusicVideo } from "../../App";
 
-interface Props extends MusicVideo, Pick<useYouTubeProps, 'onVideoEnd'> { };
+interface Props extends
+    MusicVideo,
+    Pick<useYouTubeProps, 'divId' | 'onVideoEnd'> { };
 
 export const Karaoke = ({
+    divId,
     videoId,
     songTitle,
     songArtist,
     cc,
     onVideoEnd,
 }: Props) => {
-    const divId = 'video-player';
-
     const { dimensions: { video, caption } } = useDimensions();
 
     const { milliseconds } = useYouTube({
@@ -28,7 +29,7 @@ export const Karaoke = ({
 
     return (
         <section className="karaoke">
-            <div id={divId} />
+            <div id={divId || videoId} />
             <Lyrics
                 milliseconds={milliseconds}
                 captionHeight={caption.height}

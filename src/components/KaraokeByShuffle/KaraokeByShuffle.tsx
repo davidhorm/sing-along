@@ -13,5 +13,5 @@ export const KaraokeByShuffle = ({ songList }: KaraokeByShuffleProps) => {
     const history = useHistory();
     const onVideoEnd = () => { history.replace(`/shuffle/${randomIndex + 1}`) };
 
-    return <Karaoke {...song} onVideoEnd={onVideoEnd} />
+    return <Karaoke {...song} onVideoEnd={onVideoEnd} divId="video-player" />
 }
