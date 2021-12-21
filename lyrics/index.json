@@ -326,7 +326,7 @@
         "songArtist": "Ava Max"
     },
     {
-        "videoId": "B-tOZxoNrFk",
+        "videoId": "E7lqYSD22jw",
         "songTitle": "You Deserve It All",
         "songArtist": "John Legend",
         "cc": true
@@ -341,6 +341,45 @@
         "videoId": "iM-EZekk72U",
         "songTitle": "Holiday Rock",
         "songArtist": "Neon Trees",
+        "cc": true
+    },
+    {
+        "videoId": "8Ja9JLuGryU",
+        "songTitle": "Baby, It's Cold Outside",
+        "songArtist": "Glee"
+    },
+    {
+        "videoId": "PPcpd-YBlGw",
+        "songTitle": "Santa, Can’t You Hear Me",
+        "songArtist": "Kelly Clarkson & Ariana Grande"
+    },
+    {
+        "videoId": "bSHz5S3yIzg",
+        "songTitle": "It Was A… (Masked Christmas)",
+        "songArtist": "Jimmy Fallon ft. Megan Thee Stallion & Ariana Grande",
+        "cc": true
+    },
+    {
+        "videoId": "mN3rDTAdM2o",
+        "songTitle": "Christmas Tree Farm",
+        "songArtist": "Taylor Swift",
+        "cc": true
+    },
+    {
+        "videoId": "GqUp5K_sHd0",
+        "songTitle": "Officially Christmas",
+        "songArtist": "Dan + Shay"
+    },
+    {
+        "videoId": "dhKseUuvC7E",
+        "songTitle": "Make It To Christmas",
+        "songArtist": "Alessia Cara",
+        "cc": true
+    },
+    {
+        "videoId": "AXi1G9WhcRY",
+        "songTitle": "(Everybody’s Waitin’ For) The Man With The Bag",
+        "songArtist": "Darren Criss ft. Adam Lambert",
         "cc": true
     }
 ]

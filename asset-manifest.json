@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/sing-along/static/css/main.a1245e13.chunk.css",
-    "main.js": "/sing-along/static/js/main.80a8c5bd.chunk.js",
-    "main.js.map": "/sing-along/static/js/main.80a8c5bd.chunk.js.map",
+    "main.css": "/sing-along/static/css/main.d6e252cf.chunk.css",
+    "main.js": "/sing-along/static/js/main.6b5a8264.chunk.js",
+    "main.js.map": "/sing-along/static/js/main.6b5a8264.chunk.js.map",
     "runtime-main.js": "/sing-along/static/js/runtime-main.914abc49.js",
     "runtime-main.js.map": "/sing-along/static/js/runtime-main.914abc49.js.map",
     "static/js/2.96698035.chunk.js": "/sing-along/static/js/2.96698035.chunk.js",
@@ -10,13 +10,13 @@
     "static/js/3.cdcca6a7.chunk.js": "/sing-along/static/js/3.cdcca6a7.chunk.js",
     "static/js/3.cdcca6a7.chunk.js.map": "/sing-along/static/js/3.cdcca6a7.chunk.js.map",
     "index.html": "/sing-along/index.html",
-    "static/css/main.a1245e13.chunk.css.map": "/sing-along/static/css/main.a1245e13.chunk.css.map",
+    "static/css/main.d6e252cf.chunk.css.map": "/sing-along/static/css/main.d6e252cf.chunk.css.map",
     "static/js/2.96698035.chunk.js.LICENSE.txt": "/sing-along/static/js/2.96698035.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.914abc49.js",
     "static/js/2.96698035.chunk.js",
-    "static/css/main.a1245e13.chunk.css",
-    "static/js/main.80a8c5bd.chunk.js"
+    "static/css/main.d6e252cf.chunk.css",
+    "static/js/main.6b5a8264.chunk.js"
   ]
 }
