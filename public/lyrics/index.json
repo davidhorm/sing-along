@@ -352,5 +352,11 @@
         "videoId": "PPcpd-YBlGw",
         "songTitle": "Santa, Can’t You Hear Me",
         "songArtist": "Kelly Clarkson & Ariana Grande"
+    },
+    {
+        "videoId": "bSHz5S3yIzg",
+        "songTitle": "It Was A… (Masked Christmas)",
+        "songArtist": "Jimmy Fallon ft. Megan Thee Stallion & Ariana Grande",
+        "cc": true
     }
 ]
