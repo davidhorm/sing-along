@@ -1,6 +1,13 @@
+import { createMuiTheme, ThemeProvider } from '@material-ui/core';
 import { Directory, KaraokeByShuffle, KaraokeByVideoId, SyncLyrics } from './components';
 import { useFetch } from './hooks';
 import { Switch, Route } from 'react-router-dom';
+
+const darkTheme = createMuiTheme({
+  palette: {
+    type: 'dark',
+  },
+});
 
 export type MusicVideo = {
   videoId: string;
@@ -17,20 +24,22 @@ const App = () => {
 
   return (
     <div className="App">
-      <Switch>
-        <Route path="/shuffle/:shuffleIndex">
-          <KaraokeByShuffle songList={randomSongList} />
-        </Route>
-        <Route path="/:videoId/edit">
-          <SyncLyrics />
-        </Route>
-        <Route path="/:videoId">
-          <KaraokeByVideoId songList={songList} />
-        </Route>
-        <Route path="/">
-          <Directory songList={songList} />
-        </Route>
-      </Switch>
+      <ThemeProvider theme={darkTheme}>
+        <Switch>
+          <Route path="/shuffle/:shuffleIndex">
+            <KaraokeByShuffle songList={randomSongList} />
+          </Route>
+          <Route path="/:videoId/edit">
+            <SyncLyrics />
+          </Route>
+          <Route path="/:videoId">
+            <KaraokeByVideoId songList={songList} />
+          </Route>
+          <Route path="/">
+            <Directory songList={songList} />
+          </Route>
+        </Switch>
+      </ThemeProvider>
     </div>
   );
 }
