@@ -369,5 +369,11 @@
         "videoId": "GqUp5K_sHd0",
         "songTitle": "Officially Christmas",
         "songArtist": "Dan + Shay"
+    },
+    {
+        "videoId": "dhKseUuvC7E",
+        "songTitle": "Make It To Christmas",
+        "songArtist": "Alessia Cara",
+        "cc": true
     }
 ]
