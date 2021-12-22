@@ -6,10 +6,9 @@ import type { MusicVideo } from "../../App";
 
 interface Props extends
     MusicVideo,
-    Pick<useYouTubeProps, 'divId' | 'onVideoEnd'> { };
+    Pick<useYouTubeProps, 'onVideoEnd'> { };
 
 export const Karaoke = ({
-    divId,
     videoId,
     songTitle,
     songArtist,
@@ -19,7 +18,6 @@ export const Karaoke = ({
     const { dimensions: { video, caption } } = useDimensions();
 
     const { milliseconds } = useYouTube({
-        divId,
         videoId,
         videoWidth: video.width,
         videoHeight: video.height,
@@ -29,7 +27,7 @@ export const Karaoke = ({
 
     return (
         <section className="karaoke">
-            <div id={divId || videoId} />
+            <div id={videoId} />
             <Lyrics
                 milliseconds={milliseconds}
                 captionHeight={caption.height}

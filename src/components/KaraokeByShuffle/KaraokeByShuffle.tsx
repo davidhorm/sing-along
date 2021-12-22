@@ -13,5 +13,9 @@ export const KaraokeByShuffle = ({ songList }: KaraokeByShuffleProps) => {
     const history = useHistory();
     const onVideoEnd = () => { history.replace(`/shuffle/${randomIndex + 1}`) };
 
-    return <Karaoke {...song} onVideoEnd={onVideoEnd} divId="video-player" />
+    return <Karaoke
+        {...song}
+        onVideoEnd={onVideoEnd}
+        key={shuffleIndex} // Rerender component to fix YouTube racing issue
+    />
 }
