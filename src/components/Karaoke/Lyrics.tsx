@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import type { MusicVideo } from '../../App';
+import './Lyrics.css';
 
 interface LyricsProps extends Omit<MusicVideo, 'videoId'> {
     captionHeight: number;
