@@ -4,3 +4,15 @@
     align-items: center;
     height: 100vh;
 }
+
+.videoContainer {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    position: relative;
+}
+
+.videoContainer > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
