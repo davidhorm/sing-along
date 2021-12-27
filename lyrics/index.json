@@ -124,11 +124,6 @@
         "songArtist": "NSYNC"
     },
     {
-        "videoId": "9LVWsXau1BU",
-        "songTitle": "Have Yourself a Merry Little Christmas",
-        "songArtist": "Christina Aguilera ft. Brian McKnight"
-    },
-    {
         "videoId": "j7Tksexm680",
         "songTitle": "My Only Wish (This Year)",
         "songArtist": "Britney Spears",
@@ -369,6 +364,24 @@
         "videoId": "AXi1G9WhcRY",
         "songTitle": "(Everybody’s Waitin’ For) The Man With The Bag",
         "songArtist": "Darren Criss ft. Adam Lambert",
+        "cc": true
+    },
+    {
+        "videoId": "UjyKUthmIqM",
+        "songTitle": "Rudolph The Red-Nosed Reindeer",
+        "songArtist": "Burl lves",
+        "cc": true
+    },
+    {
+        "videoId": "-tJtsKngXJU",
+        "songTitle": "Have Yourself A Merry Little Christmas",
+        "songArtist": "Frank Sinatra",
+        "cc": true
+    },
+    {
+        "videoId": "Q_yuO8UNGmY",
+        "songTitle": "Merry Christmas",
+        "songArtist": "Ed Sheeran & Elton John",
         "cc": true
     }
 ]
