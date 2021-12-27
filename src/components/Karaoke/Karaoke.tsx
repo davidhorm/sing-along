@@ -25,14 +25,14 @@ export const Karaoke = ({
             <div className="videoContainer">
                 <div id={videoId} />
             </div>
-            <div className="lyricsContainer">
+            {!cc &&
                 <Lyrics
                     milliseconds={milliseconds}
                     songTitle={songTitle}
                     songArtist={songArtist}
                     cc={cc}
                 />
-            </div>
+            }
         </section>
     );
 };
