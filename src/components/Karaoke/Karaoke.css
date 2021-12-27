@@ -5,20 +5,14 @@
     height: 100vh;
 }
 
-.active-line {
-    font-size: 2.5rem;
-    font-weight: bold;
-    color: hsl(0deg 85% 55%);
+.videoContainer {
+    aspect-ratio: 16 / 9;
+    width: 100%;
+    position: relative;
 }
 
-.inactive-line {
-    margin-top: 1rem;
-}
-
-.lrc {
-    overflow: hidden;
-    text-align: center;
-    line-height: 2rem;
-    margin-top: 2rem;
-    flex-grow: 1;
+.videoContainer > iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
 }
