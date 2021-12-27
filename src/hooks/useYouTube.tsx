@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import YouTubePlayer from 'youtube-player';
-import { Options, YouTubePlayer as YouTubePlayerType } from 'youtube-player/dist/types';
+import type { Options } from 'youtube-player/dist/types';
 
 const isIOS = () => [
     'iPad Simulator',
@@ -21,6 +21,8 @@ const isIOS = () => [
 const disableFullscreenOnIOS = (cc: boolean) => cc ? 0 : (isIOS() ? 1 : 0);
 
 const getYouTubePlayerOptions = (cc: boolean): Options => ({
+    height: '100%',
+    width: '100%',
     playerVars: {
         cc_load_policy: 1, // show closed captions
         iv_load_policy: 3, // remove video annotations
@@ -31,21 +33,16 @@ const getYouTubePlayerOptions = (cc: boolean): Options => ({
 
 export interface useYouTubeProps {
     videoId: string;
-    videoWidth?: number;
-    videoHeight?: number;
     cc?: boolean;
     onVideoEnd?: Function;
 }
-export const useYouTube = ({ videoId, videoWidth, videoHeight, cc = false, onVideoEnd }: useYouTubeProps) => {
+export const useYouTube = ({ videoId, cc = false, onVideoEnd }: useYouTubeProps) => {
     const [milliseconds, setMilliseconds] = useState(0);
-    const [youTubePlayer, setYouTubePlayer] = useState<YouTubePlayerType>();
 
     useEffect(() => {
         const playerOptions = getYouTubePlayerOptions(cc);
         const player = YouTubePlayer(videoId, playerOptions);
         player.loadVideoById(videoId);
-
-        setYouTubePlayer(player);
 
         let timer: ReturnType<typeof setInterval>;
         const startTimer = async () => {
@@ -83,10 +80,6 @@ export const useYouTube = ({ videoId, videoWidth, videoHeight, cc = false, onVid
             player.destroy();
         };
     }, [videoId, cc, onVideoEnd]);
-
-    useEffect(() => {
-        youTubePlayer && videoWidth && videoHeight && youTubePlayer.setSize(videoWidth, videoHeight);
-    }, [youTubePlayer, videoWidth, videoHeight]);
 
     return { milliseconds };
 }

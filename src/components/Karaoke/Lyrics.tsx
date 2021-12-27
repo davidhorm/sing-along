@@ -1,13 +1,13 @@
 import { useCallback, useEffect, useState } from "react";
 import { Lrc, LrcLine } from "@mebtte/react-lrc";
 import type { MusicVideo } from '../../App';
+import './Lyrics.css';
 
 interface LyricsProps extends Omit<MusicVideo, 'videoId'> {
-    captionHeight: number;
     milliseconds: number;
 }
 
-export const Lyrics = ({ milliseconds, captionHeight, songTitle, songArtist, cc }: LyricsProps) => {
+export const Lyrics = ({ milliseconds, songTitle, songArtist, cc }: LyricsProps) => {
     const [lrcData, setLrcData] = useState('');
     useEffect(() => {
         const lyricUrl = !cc ? `/sing-along/lyrics/${songTitle} - ${songArtist}.lrc` : '';
@@ -32,7 +32,6 @@ export const Lyrics = ({ milliseconds, captionHeight, songTitle, songArtist, cc 
         lrc={!cc ? lrcData : '[00:00.0] [CC Available]'}
         currentTime={milliseconds}
         lineRenderer={lineRenderer}
-        style={{ height: `calc(${captionHeight}px - 4em)`, overflow: 'hidden' }}
         spaceTop={0}
     />
-}
+};
