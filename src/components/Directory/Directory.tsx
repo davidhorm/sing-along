@@ -1,6 +1,5 @@
 import './Directory.css';
 import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined';
-import type { MusicVideo } from '../../App';
 import { makeStyles } from '@material-ui/core/styles';
 import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
@@ -8,6 +7,7 @@ import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+import type { MusicVideo } from '../../App';
 import { ShuffleButton } from './ShuffleButton';
 
 const useStyles = makeStyles({

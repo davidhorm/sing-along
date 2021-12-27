@@ -1,6 +1,6 @@
+import { useHistory, useParams } from 'react-router-dom';
 import type { MusicVideo } from '../../App';
 import { Karaoke } from '../Karaoke/Karaoke';
-import { useHistory, useParams } from 'react-router-dom';
 
 interface KaraokeByShuffleProps {
   songList: MusicVideo[];

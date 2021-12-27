@@ -1,4 +1,5 @@
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
+import { Switch, Route } from 'react-router-dom';
 import {
   Directory,
   KaraokeByShuffle,
@@ -6,7 +7,6 @@ import {
   SyncLyrics,
 } from './components';
 import { useFetch } from './hooks';
-import { Switch, Route } from 'react-router-dom';
 
 const darkTheme = createMuiTheme({
   palette: {

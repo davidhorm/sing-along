@@ -12,12 +12,12 @@ export const SyncLyrics = () => {
   return (
     <section className="sync-lyrics" style={{ display: 'flex' }}>
       <div>
-        <div id={videoId}></div>
+        <div id={videoId} />
         <br />
         <textarea
           style={{ border: 'solid 1px gray', height: '35%', width: '100%' }}
           onChange={(e) => setLyricLines(e.target.value.split('\n'))}
-        ></textarea>
+        />
         <br />
         <Button
           variant="outlined"
@@ -44,11 +44,14 @@ export const SyncLyrics = () => {
         {lyricLines.map((lyric, index) => {
           const timestamp = milliseconds[index]
             ? `[${new Date(0, 0, 0, 0, 0, 0, milliseconds[index])
-                .toISOString()
-                .substring(14, 21)}] `
+              .toISOString()
+              .substring(14, 21)}] `
             : '';
           return (
-            <div key={index}>
+            <div
+              /* eslint-disable  react/no-array-index-key */
+              key={index}
+            >
               {timestamp}
               {lyric}
             </div>

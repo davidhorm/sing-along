@@ -9,7 +9,7 @@ export const useFetch = (url: string) => {
         .then((response) => response.text())
         .then((result) => setData(result));
 
-    url && fetchData();
+    if (url) fetchData();
   }, [url]);
 
   return { data };
