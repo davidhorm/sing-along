@@ -124,11 +124,6 @@
         "songArtist": "NSYNC"
     },
     {
-        "videoId": "9LVWsXau1BU",
-        "songTitle": "Have Yourself a Merry Little Christmas",
-        "songArtist": "Christina Aguilera ft. Brian McKnight"
-    },
-    {
         "videoId": "j7Tksexm680",
         "songTitle": "My Only Wish (This Year)",
         "songArtist": "Britney Spears",
@@ -375,6 +370,12 @@
         "videoId": "UjyKUthmIqM",
         "songTitle": "Rudolph The Red-Nosed Reindeer",
         "songArtist": "Burl lves",
+        "cc": true
+    },
+    {
+        "videoId": "-tJtsKngXJU",
+        "songTitle": "Have Yourself A Merry Little Christmas",
+        "songArtist": "Frank Sinatra",
         "cc": true
     }
 ]
