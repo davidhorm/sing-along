@@ -32,5 +32,15 @@ module.exports = {
     "import/extensions": "off",
     "import/no-unresolved": "off",
     "import/prefer-default-export": "off",
+
+    /**
+     * Custom `react` eslint rules:
+     * - https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/function-component-definition.md
+     * - https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-filename-extension.md
+     * - https://github.com/yannickcr/eslint-plugin-react/blob/master/docs/rules/jsx-props-no-spreading.md
+     */
+    "react/function-component-definition": ["error", { "namedComponents": "arrow-function" }],
+    "react/jsx-filename-extension": ["warn", { "extensions": [".tsx"] }],
+    "react/jsx-props-no-spreading": "off",
   },
 };
