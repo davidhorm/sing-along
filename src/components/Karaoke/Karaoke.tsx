@@ -3,7 +3,7 @@ import './Karaoke.css';
 import { Lyrics } from './Lyrics';
 import type { MusicVideo } from '../../App';
 
-interface Props extends MusicVideo, Pick<useYouTubeProps, 'onVideoEnd'> {}
+interface Props extends MusicVideo, Pick<useYouTubeProps, 'onVideoEnd'> { }
 
 export const Karaoke = ({
   videoId,
@@ -20,7 +20,7 @@ export const Karaoke = ({
 
   return (
     <section className="karaoke">
-      <div className="videoContainer">
+      <div className="video">
         <div id={videoId} />
       </div>
       {!cc && (

@@ -1,9 +1,9 @@
 .directory {
-    display: flex;
-    flex-wrap: wrap;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .cc-icon {
-    vertical-align: middle;
-    padding-left: .25em;
+  vertical-align: middle;
+  padding-left: 0.25em;
 }
