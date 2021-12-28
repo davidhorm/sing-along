@@ -1,7 +1,12 @@
 import { createMuiTheme, ThemeProvider } from '@material-ui/core';
-import { Directory, KaraokeByShuffle, KaraokeByVideoId, SyncLyrics } from './components';
-import { useFetch } from './hooks';
 import { Switch, Route } from 'react-router-dom';
+import {
+  Directory,
+  KaraokeByShuffle,
+  KaraokeByVideoId,
+  SyncLyrics,
+} from './components';
+import { useFetch } from './hooks';
 
 const darkTheme = createMuiTheme({
   palette: {
@@ -14,13 +19,14 @@ export type MusicVideo = {
   songTitle: string;
   songArtist: string;
   cc?: boolean;
-}
+};
+
 const App = () => {
   const { data } = useFetch('/sing-along/lyrics/index.json');
   const songList: MusicVideo[] = data ? JSON.parse(data) : [];
 
   // Shuffle list here since KaraokeByShuffle rerenders on each page load
-  const randomSongList = [...songList].sort(() => 0.5 - Math.random())
+  const randomSongList = [...songList].sort(() => 0.5 - Math.random());
 
   return (
     <div className="App">
@@ -42,6 +48,6 @@ const App = () => {
       </ThemeProvider>
     </div>
   );
-}
+};
 
 export default App;
