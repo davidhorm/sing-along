@@ -9,13 +9,9 @@
 }
 
 .lrc {
-  --lyrics-margin: 2rem;
-  --min-height: calc(20vh - var(--lyrics-margin));
-  --max-height: calc(100vh - (100vw / 16 * 9) - var(--lyrics-margin));
-
   overflow: hidden;
   text-align: center;
   line-height: 2rem;
   margin-top: var(--lyrics-margin);
-  height: max(var(--min-height), var(--max-height));
+  height: var(--lyrics-height);
 }
