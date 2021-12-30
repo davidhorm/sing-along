@@ -1,13 +1,13 @@
 import './Directory.css';
+import { Link } from 'react-router-dom';
 import ClosedCaptionOutlinedIcon from '@material-ui/icons/ClosedCaptionOutlined';
 import { makeStyles } from '@material-ui/core/styles';
-import { Link } from 'react-router-dom';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
-import type { MusicVideo } from '../../App';
+import { MusicVideos } from '../../MusicVideos';
 import { ShuffleButton } from './ShuffleButton';
 
 const useStyles = makeStyles({
@@ -28,10 +28,7 @@ const useStyles = makeStyles({
   },
 });
 
-type DirectoryProps = {
-  songList: MusicVideo[];
-};
-export const Directory = ({ songList }: DirectoryProps) => {
+export const Directory = () => {
   const classes = useStyles();
 
   return (
@@ -41,11 +38,11 @@ export const Directory = ({ songList }: DirectoryProps) => {
         <ShuffleButton />
       </nav>
       <section className="directory">
-        {songList
-          .sort((a: MusicVideo, b: MusicVideo) =>
+        {MusicVideos
+          .sort((a, b) =>
             a.songTitle.localeCompare(b.songTitle),
           )
-          .map(({ videoId, songTitle, songArtist, cc }: MusicVideo) => {
+          .map(({ videoId, songTitle, songArtist, cc }) => {
             const youtubeThumbnailSrc = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
             const youtubeThumbnailAlt = `Youtube Thumbnail of ${songTitle}`;
 

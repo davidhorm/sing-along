@@ -1,4 +1,11 @@
-[
+export type MusicVideo = {
+    videoId: string;
+    songTitle: string;
+    songArtist: string;
+    cc?: boolean;
+};
+
+export const MusicVideos: MusicVideo[] = [
     {
         "videoId": "aAkMkVFwAoo",
         "songTitle": "All I Want for Christmas Is You",
@@ -384,4 +391,4 @@
         "songArtist": "Ed Sheeran & Elton John",
         "cc": true
     }
-]
+];

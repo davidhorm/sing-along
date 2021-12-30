@@ -1,7 +1,7 @@
 import { useYouTube, useYouTubeProps } from '../../hooks/useYouTube';
 import './Karaoke.css';
 import { Lyrics } from './Lyrics';
-import type { MusicVideo } from '../../App';
+import type { MusicVideo } from '../../MusicVideos';
 
 interface Props extends MusicVideo, Pick<useYouTubeProps, 'onVideoEnd'> { }
 

@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { Lrc, LrcLine } from '@mebtte/react-lrc';
-import type { MusicVideo } from '../../App';
+import type { MusicVideo } from '../../MusicVideos';
 import './Lyrics.css';
 
 interface LyricsProps extends Omit<MusicVideo, 'videoId'> {
