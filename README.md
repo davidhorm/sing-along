@@ -1,46 +1,36 @@
-# Getting Started with Create React App
+# SING-ALONG
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Display lyrics along side (currently holiday) music videos to sing-along to.
 
-## Available Scripts
+Deployed at https://davidhorm.github.io/sing-along
 
-In the project directory, you can run:
 
-### `yarn start`
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change. Since the only "business rule" is to display YouTube videos and lyrics, there aren't any unit tests to update.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Adding a new song
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+1. Add Music Video info to `src\MusicVideos.ts`
+2. Create lyrics file at `public\lyrics\<song title> - <song artist>.lrc` with [LRC file format](https://en.wikipedia.org/wiki/LRC_(file_format))
+   1. Note: if the Music Video info has `cc: true`, the no lyrics file is expected.
 
-### `yarn test`
+## Creating a `.lrc` file
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+1. Navigate to `https://davidhorm.github.io/sing-along/#/<video id>/edit`
+2. Paste in the lyrics in the textarea
+3. Play the video
+4. Press the "Set Time" button to timestamp the lyrics line.
+   1. NOTE: Can also focus on the button, and use the space bar for timestamping instead.
+5. Copy the timestamped lyrics text to `.lrc` file.
 
-### `yarn build`
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Special Thanks to Sponsors
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Thanks to the following companies to help us to achieve our goals providing free open source licenses. Every company provides enough resources to move this project forward.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+| Company                                                                                                                      | License                                                                                                                                                                                                                                 |
+| ---------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| [![browserstack](https://www.vectorlogo.zone/logos/browserstack/browserstack-ar21.svg)](https://www.browserstack.com/)       | BrowserStack is a testing platform that provides the ability to test websites and mobile apps across on-demand browsers, operating systems and real mobile devices. Open Source projects get unlimited access to BrowserStack products. |
+| [![VectorLogo.Zone](https://www.vectorlogo.zone/logos/vectorlogozone/vectorlogozone-ar21.svg)](https://www.vectorlogo.zone/) | VectorLogo.Zone has 3,000+ gorgeous SVG logos, perfect for your README or credits page. They offer hotlinking of logos (like the logos in this README!)                                                                                 |
