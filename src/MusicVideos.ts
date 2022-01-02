@@ -390,5 +390,11 @@ export const MusicVideos: MusicVideo[] = [
         "songTitle": "Merry Christmas",
         "songArtist": "Ed Sheeran & Elton John",
         "cc": true
+    },
+    {
+        "videoId": "YBuZCwS0seE",
+        "songTitle": "Christmas Wrapping",
+        "songArtist": "The Waitresses",
+        "cc": true
     }
 ];
