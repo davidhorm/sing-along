@@ -118,11 +118,6 @@ export const MusicVideos: MusicVideo[] = [
     songArtist: 'Daryl Hall & John Oates',
   },
   {
-    videoId: 'mmZBC92pgrE',
-    songTitle: 'Christmas (Baby, Please Come Home)',
-    songArtist: 'U2',
-  },
-  {
     videoId: 'gcPY3RIvtCw',
     songTitle: 'Hard Candy Christmas',
     songArtist: 'Dolly Parton',
@@ -331,12 +326,6 @@ export const MusicVideos: MusicVideo[] = [
     cc: 'LYRIC_VIDEO',
   },
   {
-    videoId: 'iM-EZekk72U',
-    songTitle: 'Holiday Rock',
-    songArtist: 'Neon Trees',
-    cc: 'CLOSED_CAPTIONS',
-  },
-  {
     videoId: '8Ja9JLuGryU',
     songTitle: "Baby, It's Cold Outside",
     songArtist: 'Glee',
@@ -397,6 +386,60 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'YBuZCwS0seE',
     songTitle: 'Christmas Wrapping',
     songArtist: 'The Waitresses',
+    cc: 'LYRIC_VIDEO',
+  },
+  {
+    videoId: 'gset79KMmt0',
+    songTitle: 'Snowman',
+    songArtist: 'Sia',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: 'HhiUOCo8LYQ',
+    songTitle: 'Santa Claus Is Coming To Town',
+    songArtist: 'Jackson 5',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: 'BO_g0BgWiLI',
+    songTitle: 'Here Comes Santa Claus (Right Down Santa Claus Lane)',
+    songArtist: 'Elvis Presley',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: 'vf4ZXBzbAio',
+    songTitle: 'Christmas (Baby Please Come Home)',
+    songArtist: 'Darlene Love',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: '7IFfZRVRbqM',
+    songTitle: 'Wrapped in Red',
+    songArtist: 'Kelly Clarkson',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: 'UlCy_ZDK_k0',
+    songTitle: "I'll Be Home For Christmas",
+    songArtist: 'Bing Crosby',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: 'LRP8d7hhpoQ',
+    songTitle: 'Hallelujah',
+    songArtist: 'Pentatonix',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: 'FezVApPddqU',
+    songTitle: 'Mele Kalikimaka',
+    songArtist: 'Bing Crosby & The Andrews Sisters',
+    cc: 'CLOSED_CAPTIONS',
+  },
+  {
+    videoId: 'sDxLmjGXnQU',
+    songTitle: 'I Need You Christmas',
+    songArtist: 'Jonas Brothers',
     cc: 'LYRIC_VIDEO',
   },
 ];
