@@ -404,7 +404,7 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'BO_g0BgWiLI',
     songTitle: 'Here Comes Santa Claus (Right Down Santa Claus Lane)',
     songArtist: 'Elvis Presley',
-    cc: 'CLOSED_CAPTIONS',
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: 'vf4ZXBzbAio',
