@@ -9,7 +9,7 @@
 }
 
 .lrc {
-  overflow: hidden;
+  overflow: hidden !important;
   text-align: center;
   line-height: 2rem;
   margin-top: var(--lyrics-margin);
