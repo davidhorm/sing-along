@@ -38,11 +38,8 @@ export const Directory = () => {
         <ShuffleButton />
       </nav>
       <section className="directory">
-        {MusicVideos
-          .sort((a, b) =>
-            a.songTitle.localeCompare(b.songTitle),
-          )
-          .map(({ videoId, songTitle, songArtist, cc }) => {
+        {MusicVideos.sort((a, b) => a.songTitle.localeCompare(b.songTitle)).map(
+          ({ videoId, songTitle, songArtist, cc }) => {
             const youtubeThumbnailSrc = `https://img.youtube.com/vi/${videoId}/mqdefault.jpg`;
             const youtubeThumbnailAlt = `Youtube Thumbnail of ${songTitle}`;
 
@@ -83,7 +80,8 @@ export const Directory = () => {
                 </Link>
               </Card>
             );
-          })}
+          },
+        )}
       </section>
     </>
   );

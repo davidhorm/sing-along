@@ -44,8 +44,8 @@ export const SyncLyrics = () => {
         {lyricLines.map((lyric, index) => {
           const timestamp = milliseconds[index]
             ? `[${new Date(0, 0, 0, 0, 0, 0, milliseconds[index])
-              .toISOString()
-              .substring(14, 21)}] `
+                .toISOString()
+                .substring(14, 21)}] `
             : '';
           return (
             <div

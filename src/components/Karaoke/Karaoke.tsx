@@ -3,7 +3,7 @@ import './Karaoke.css';
 import { Lyrics } from './Lyrics';
 import type { MusicVideo } from '../../MusicVideos';
 
-interface Props extends MusicVideo, Pick<useYouTubeProps, 'onVideoEnd'> { }
+interface Props extends MusicVideo, Pick<useYouTubeProps, 'onVideoEnd'> {}
 
 export const Karaoke = ({
   videoId,

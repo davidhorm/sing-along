@@ -34,7 +34,8 @@
     "deploy": "gh-pages -d build",
     "lint:js": "eslint src/**/*.{js,jsx,ts,tsx}",
     "lint:css": "stylelint src/**/*.css",
-    "lint": "yarn lint:js && yarn lint:css"
+    "lint": "yarn lint:js && yarn lint:css",
+    "format": "prettier -w ./src/**/*.{ts,tsx}"
   },
   "browserslist": [
     "defaults",

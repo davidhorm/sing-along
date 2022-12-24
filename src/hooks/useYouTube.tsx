@@ -19,7 +19,7 @@ const isIOS = () =>
  * @param cc
  * @returns 0 = enable fullscreen; 1 = disable fullscreen
  */
-const disableFullscreenOnIOS = (cc: boolean) => !cc && isIOS() ? 1 : 0;
+const disableFullscreenOnIOS = (cc: boolean) => (!cc && isIOS() ? 1 : 0);
 
 const getYouTubePlayerOptions = (cc: boolean): Options => ({
   height: '100%',
