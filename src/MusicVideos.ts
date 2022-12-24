@@ -2,7 +2,9 @@ export type MusicVideo = {
   videoId: string;
   songTitle: string;
   songArtist: string;
-  cc?: boolean;
+  cc?:
+    | 'CLOSED_CAPTIONS' // display closed-captions in YouTube
+    | 'LYRIC_VIDEO'; // don't display closed-captions or load lyric file because video has lyrics already
 };
 
 export const MusicVideos: MusicVideo[] = [
@@ -15,49 +17,49 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'k4s1wSCvs8k',
     songTitle: 'Let It Snow',
     songArtist: 'Boyz II Men ft. Brian McKnight',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'e_AMTbO50vU',
     songTitle: 'A Holly Jolly Christmas',
     songArtist: 'Burl Ives',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'DocgDlM6zHI',
     songTitle: "I'll Be Home For Christmas + Cozy Little Christmas",
     songArtist: 'Katy Perry',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: 'PF-R5ZaG71I',
     songTitle: 'Feliz Navidad',
     songArtist: 'Pee Wee & Charo',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'txw4gOK2alU',
     songTitle: 'What Christmas Means To Me',
     songArtist: 'Ciara',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: '0iAZWhOaHaM',
     songTitle: 'This Christmas',
     songArtist: 'Ne-Yo',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'g_kj60DIq2M',
     songTitle: 'Happy Xmas (War Is Over)',
     songArtist: 'John Lennon & Yoko Ono',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'tIyE3IrC7r0',
     songTitle: "Like It's Christmas",
     songArtist: 'Jonas Brothers',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: 'E8gmARGvPlI',
@@ -83,7 +85,7 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'wKhRnZZ0cJI',
     songTitle: 'The Christmas Song (Merry Christmas To You)',
     songArtist: 'Nat King Cole',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'wO6Kubm5tyE',
@@ -134,7 +136,7 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'j7Tksexm680',
     songTitle: 'My Only Wish (This Year)',
     songArtist: 'Britney Spears',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: '62rmjtZdCv8',
@@ -160,25 +162,25 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'YiadNVhaGwk',
     songTitle: 'Run Rudolph Run',
     songArtist: 'Chuck Berry',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'xp9rK8FmYog',
     songTitle: 'Little Saint Nick',
     songArtist: 'The Beach Boys',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'IuDUoAmhonE',
     songTitle: 'This Gift',
     songArtist: '98º',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'GP5_dJUd3BY',
     songTitle: 'Winter Wonderland',
     songArtist: 'Bing Crosby',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'qUCNAnp2QAI',
@@ -189,7 +191,7 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'QLvvkTbHjHI',
     songTitle: "What's This",
     songArtist: 'The Nightmare Before Christmas',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'XFF99j-0e84',
@@ -200,55 +202,55 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'j-_1-uJ6Ml4',
     songTitle: 'One More Sleep',
     songArtist: 'Leona Lewis',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'hLf0-lro8X8',
     songTitle: 'Jingle Bells',
     songArtist: 'Frank Sinatra',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'uoMHmsL2t3A',
     songTitle: 'Step Into Christmas',
     songArtist: 'Elton John',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: 'uSjq7x67kzM',
     songTitle: 'Driving Home For Christmas',
     songArtist: 'Chris Rea',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: '3ZT9_H4-hbM',
     songTitle: 'You Make It Feel Like Christmas',
     songArtist: 'Gwen Stefani ft. Blake Shelton',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'GV5bhZ0oZPI',
     songTitle: 'Glittery',
     songArtist: 'Kacey Musgraves ft. Troye Sivan',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'O89sPooBhyE',
     songTitle: 'I Saw Mommy Kissing Santa Claus',
     songArtist: 'Jackson 5',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'HXJcKeeXSlM',
     songTitle: 'Naughty List',
     songArtist: "Liam Payne & Dixie D'Amelio",
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'Hmw4Fu4XupE',
     songTitle: 'Frosty The Snowman',
     songArtist: 'Ella Fitzgerald',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'MaA7B9cu4kU',
@@ -309,7 +311,7 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'V8HQ-YY33ys',
     songTitle: 'Merry Christmas Baby',
     songArtist: 'Otis Redding',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: 'xWw3P_17Xw8',
@@ -320,19 +322,19 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'E7lqYSD22jw',
     songTitle: 'You Deserve It All',
     songArtist: 'John Legend',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: '7nLU5i5Ec7g',
     songTitle: "Christmas Isn't Canceled (Just You)",
     songArtist: 'Kelly Clarkson',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
   {
     videoId: 'iM-EZekk72U',
     songTitle: 'Holiday Rock',
     songArtist: 'Neon Trees',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: '8Ja9JLuGryU',
@@ -348,13 +350,13 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'bSHz5S3yIzg',
     songTitle: 'It Was A… (Masked Christmas)',
     songArtist: 'Jimmy Fallon ft. Megan Thee Stallion & Ariana Grande',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'mN3rDTAdM2o',
     songTitle: 'Christmas Tree Farm',
     songArtist: 'Taylor Swift',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'GqUp5K_sHd0',
@@ -365,36 +367,36 @@ export const MusicVideos: MusicVideo[] = [
     videoId: 'dhKseUuvC7E',
     songTitle: 'Make It To Christmas',
     songArtist: 'Alessia Cara',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'AXi1G9WhcRY',
     songTitle: '(Everybody’s Waitin’ For) The Man With The Bag',
     songArtist: 'Darren Criss ft. Adam Lambert',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'UjyKUthmIqM',
     songTitle: 'Rudolph The Red-Nosed Reindeer',
     songArtist: 'Burl lves',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: '-tJtsKngXJU',
     songTitle: 'Have Yourself A Merry Little Christmas',
     songArtist: 'Frank Sinatra',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'Q_yuO8UNGmY',
     songTitle: 'Merry Christmas',
     songArtist: 'Ed Sheeran & Elton John',
-    cc: true,
+    cc: 'CLOSED_CAPTIONS',
   },
   {
     videoId: 'YBuZCwS0seE',
     songTitle: 'Christmas Wrapping',
     songArtist: 'The Waitresses',
-    cc: true,
+    cc: 'LYRIC_VIDEO',
   },
 ];

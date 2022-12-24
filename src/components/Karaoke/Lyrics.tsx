@@ -3,7 +3,7 @@ import { Lrc, LrcLine } from '@mebtte/react-lrc';
 import type { MusicVideo } from '../../MusicVideos';
 import './Lyrics.css';
 
-interface LyricsProps extends Omit<MusicVideo, 'videoId'> {
+interface LyricsProps extends Omit<MusicVideo, 'videoId' | 'cc'> {
   milliseconds: number;
 }
 
@@ -11,17 +11,14 @@ export const Lyrics = ({
   milliseconds,
   songTitle,
   songArtist,
-  cc,
 }: LyricsProps) => {
   const [lrcData, setLrcData] = useState('');
   useEffect(() => {
-    const lyricUrl = !cc
-      ? `/sing-along/lyrics/${songTitle} - ${songArtist}.lrc`
-      : '';
+    const lyricUrl = `/sing-along/lyrics/${songTitle} - ${songArtist}.lrc`;
     fetch(lyricUrl)
       .then((response) => response.text())
       .then(setLrcData);
-  }, [songTitle, songArtist, cc]);
+  }, [songTitle, songArtist]);
 
   interface ILrcLine {
     lrcLine: LrcLine;
@@ -40,7 +37,7 @@ export const Lyrics = ({
   return (
     <Lrc
       className="lrc"
-      lrc={!cc ? lrcData : '[00:00.0] [CC Available]'}
+      lrc={lrcData}
       currentTime={milliseconds}
       lineRenderer={lineRenderer}
       spaceTop={0}

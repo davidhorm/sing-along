@@ -71,7 +71,7 @@ export const Directory = () => {
                         component="p"
                       >
                         {songArtist}
-                        {cc && (
+                        {!!cc && (
                           <ClosedCaptionOutlinedIcon className="cc-icon" />
                         )}
                       </Typography>

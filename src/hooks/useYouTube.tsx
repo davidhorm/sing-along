@@ -25,7 +25,7 @@ const getYouTubePlayerOptions = (cc: boolean): Options => ({
   height: '100%',
   width: '100%',
   playerVars: {
-    cc_load_policy: 1, // show closed captions
+    cc_load_policy: cc ? 1 : undefined, // show closed captions
     iv_load_policy: 3, // remove video annotations
     playsinline: disableFullscreenOnIOS(cc), // disable auto-fullscreen in iOS
     modestbranding: 1, // remove YouTube icon in bottom corner

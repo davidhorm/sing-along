@@ -14,7 +14,7 @@ export const Karaoke = ({
 }: Props) => {
   const { milliseconds } = useYouTube({
     videoId,
-    cc,
+    cc: cc === 'CLOSED_CAPTIONS',
     onVideoEnd,
   });
 
@@ -28,7 +28,6 @@ export const Karaoke = ({
           milliseconds={milliseconds}
           songTitle={songTitle}
           songArtist={songArtist}
-          cc={cc}
         />
       )}
     </section>
